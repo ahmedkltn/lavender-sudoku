@@ -74,7 +74,7 @@ export const Leaderboard = ({ leaderboardData,username,profile }) => {
                 <td className="py-3 px-4">
                   {entry.username}
                 </td>
-                <td className="py-3 px-4">{entry.score}</td>
+                <td className="py-3 px-4">{"{:.2f}".format(entry.score)}</td>
               </tr>
             ))}
           </tbody>

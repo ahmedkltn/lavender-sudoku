@@ -7,7 +7,7 @@ export const Stats = ({ profile, gameData,isAuth, minutes, seconds }) => {
         {isAuth && (
           <div className="flex items-center">
             <BoltIcon className="h-5 w-5 text-yellow-400" />
-            <span className="text-lg text-gray-600">Score: {profile.score}</span>
+            <span className="text-lg text-gray-600">Score: {"{:.2f}".format(profile.score)}</span>
           </div>
         )}
         <div className="flex items-center gap-2">
