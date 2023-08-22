@@ -15,12 +15,13 @@ function App() {
   const [profile, setProfile] = useState(null);
   const [lastGame, setLastGame] = useState(0);
   const [isLoading, setIsloading] = useState(true);
-
+  const [ownRank, setOwnRank] = useState(0);
   const fetchProfile = async() => {
     try{
        const res = await getProfile();
        setProfile(res.user);
        setLastGame(res.last_game);
+       setOwnRank(res.rank);
     }catch(error){
       console.error(error);
     }
@@ -55,7 +56,7 @@ function App() {
               isAuth={isAuthenticated}
               profile={profile}
               isLoading={isLoading}
-              
+              ownRank={ownRank}
             />
           }
         />
