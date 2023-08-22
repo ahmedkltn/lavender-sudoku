@@ -35,9 +35,9 @@ export const LandingPage = ({ isAuth, profile}) => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-white-600 to-white-500">
-      <div className="h-6/7 w-2/3 bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col items-center p-8 shadow-2xl gap-3">
-        <h1 className="text-4xl font-semibold text-purple-700 underline mb-2">Lavender 
-        <img className="inline-block h-18 w-18" src="https://avatars.githubusercontent.com/t/7495676?s=116&v=4" alt="lavender" />
+      <div className="h-6/7 w-full md:w-2/3 bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col sm:flex-col items-center p-4 sm:p-6 md:p-8 shadow-2xl gap-3">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-semibold text-purple-700 underline mb-2">Lavender 
+        <img className="inline-block w-16 sm:w-24 md:w-32" src="https://avatars.githubusercontent.com/t/7495676?s=116&v=4" alt="lavender" />
         Sudoku</h1>
         <p className="text-lg text-center text-gray-700 mb-4">
           {isAuth ? (

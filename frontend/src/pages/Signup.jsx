@@ -18,7 +18,7 @@ export const Signup = () => {
         password: password,
         password2: password,
       });
-      await login({username : username, password : password});
+      await login({ username: username, password: password });
       navigate("/");
     } catch (error) {
       setIsInvalid(true);
@@ -35,11 +35,13 @@ export const Signup = () => {
   };
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-white-600 to-white-500">
-      <div className="h-6/7 w-2/3 bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col items-center p-8 shadow-2xl gap-3">
-        <h1 className="text-4xl font-semibold text-purple-700 underline mb-2">Sign up</h1>
+      <div className="w-full md:max-w-md bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col items-center p-8 shadow-2xl gap-3">
+        <h1 className="text-2xl md:text-4xl font-semibold text-purple-700 underline mb-2 text-center">
+          Sign up
+        </h1>
 
         <div
-          className="w-full max-w-md flex flex-col gap-4"
+          className="w-full flex flex-col gap-4"
           onChange={() => {
             setErrorMessage("");
             setIsInvalid(false);
@@ -50,7 +52,7 @@ export const Signup = () => {
             setField={setUsername}
             isInvalid={isInvalid}
           />
-          <InputForm placeholder="email" setField={setEmail} isInvalid={isInvalid} />
+          <InputForm placeholder="Email" setField={setEmail} isInvalid={isInvalid} />
           <InputForm
             placeholder="Password"
             type="password"
@@ -59,16 +61,18 @@ export const Signup = () => {
           />
           <button
             onClick={handleSignUp}
-            className="bg-purple-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-800 transition duration-300 ease-in-out"
+            className="bg-purple-700 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-800 transition duration-300 ease-in-out"
           >
             Sign up
           </button>
-          <div className="text-red-400 ">{errorMessage}</div>
+          <div className="text-red-400 text-center">{errorMessage}</div>
         </div>
-        <p>
+        <p className="text-center">
           You already have an account?{" "}
           <Link to="/login">
-            <span className="font-semibold text-purple-600 hover:text-purple-800">Login</span>
+            <span className="font-semibold text-purple-600 hover:text-purple-800">
+              Login
+            </span>
           </Link>
         </p>
         <div className="mt-6">

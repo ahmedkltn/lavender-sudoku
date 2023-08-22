@@ -128,51 +128,52 @@ const Play = ({ isAuth, profile, lastGame, fetchProfile }) => {
     return <Loading />;
   }
 
-  return (
-    <MyContextProvider grid={userProgress}>
-      <div className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-600 to-white-500">
-        <div className="h-6/7 w-2/3 bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col items-center p-8 shadow-2xl gap-3">
-          <div className="flex flex-row gap-5 justify-center items-center">
-            <div className="flex flex-col gap-1 ">
-              <Stats
-                profile={profile}
-                gameData={gameData}
-                isAuth={isAuth}
-                minutes={minutes}
-                seconds={seconds}
-              />
-              <Grid />
-            </div>
-            <div className="flex flex-col gap-2">
-              <Controls setUserBoard={setUserBoard} />
-              {isAuth && (
-                <button
-                  onClick={handleSubmitBoard}
-                  className="bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-800 transition duration-300 ease-in-out text-center"
-                >
-                  Submit
-                </button>
-              )}
-              <button
-                onClick={() => {
-                  fetchGame(true);
-                  resetTimer();
-                }}
-                className="bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-purple-800 transition duration-300 ease-in-out text-center"
-              >
-                New game
-              </button>
-            </div>
+return (
+  <MyContextProvider grid={userProgress}>
+    <div className="w-screen min-h-screen flex flex-col  items-center justify-center bg-gradient-to-b from-white-600 to-white-500">
+      <div className="h-auto lg:h-6/7 w-full lg:w-2/3 bg-gray-50 rounded-2xl border-2 border-gray-400 flex flex-col items-center lg:p-8 p-2 shadow-2xl gap-3">
+        <div className="flex flex-col lg:flex-row gap-5 justify-center items-center w-full">
+          <div className="flex flex-col gap-1 w-full lg:w-auto items-center">
+            <Stats
+              profile={profile}
+              gameData={gameData}
+              isAuth={isAuth}
+              minutes={minutes}
+              seconds={seconds}
+            />
+            <Grid />
           </div>
-          <Link to="/" className="mt-3 text-gray-600 hover:text-gray-800 hover:underline">
-            Go back to Home
-          </Link>
+          <div className="flex flex-col gap-1 w-full lg:w-auto">
+            <Controls setUserBoard={setUserBoard} />
+            {isAuth && (
+              <button
+                onClick={handleSubmitBoard}
+                className="bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-800 transition duration-300 ease-in-out text-center"
+              >
+                Submit
+              </button>
+            )}
+            <button
+              onClick={() => {
+                fetchGame(true);
+                resetTimer();
+              }}
+              className="bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-purple-800 transition duration-300 ease-in-out text-center"
+            >
+              New game
+            </button>
+          </div>
         </div>
+        <Link to="/" className="mt-3 text-gray-600 hover:text-gray-800 hover:underline">
+          Go back to Home
+        </Link>
       </div>
-      {showCongratsDialog && <CongratsMessage onClose={handleCongratsClose} />}
-      {showFailDialog && <FailMessage onClose={handleFailClose} />}
-    </MyContextProvider>
-  );
+    </div>
+    {showCongratsDialog && <CongratsMessage onClose={handleCongratsClose} />}
+    {showFailDialog && <FailMessage onClose={handleFailClose} />}
+  </MyContextProvider>
+);
+
 };
 
 export default Play;

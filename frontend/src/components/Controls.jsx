@@ -17,15 +17,15 @@ const Controls = ({ setUserBoard }) => {
     }
   };
   return (
-    <div className="p-2  bg-violet-500 rounded-lg">
-      <div className="grid grid-cols-3 gap-2">
+    <div className="p-2 bg-violet-500 rounded-lg">
+      <div className="grid lg:grid-cols-3 lg:gap-2 grid-cols-3 gap-2">
         {choices.map((choice, index) => (
           <button
             key={index}
             onClick={() => {
               handleChoiceClick(choice);
             }}
-            className={`flex justify-center items-center p-4 bg-violet-50 h-14 w-14 font-semibold text-xl text-violet-950 hover:bg-violet-400 focus:bg-violet-400 transition duration-300 rounded-lg shadow-md`}
+            className={`flex justify-center items-center p-4 bg-violet-50 h-14 lg:w-14 max-h-14 font-semibold text-xl text-violet-950 hover:bg-violet-400 focus:bg-violet-400 transition duration-300 rounded-lg shadow-md`}
           >
             {choice}
           </button>
